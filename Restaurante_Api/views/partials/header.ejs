@@ -1,0 +1,115 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+            <i class="fas fa-utensils me-2"></i>GastroAPI
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/restaurantes">
+                        <i class="fas fa-store me-1"></i>Restaurantes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/eventos">
+                        <i class="fas fa-calendar me-1"></i>Eventos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/docs">
+                        <i class="fas fa-code me-1"></i>API
+                    </a>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav">
+                <% if (user) { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-1"></i><%= user.nombre %>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/dashboard">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a></li>
+                            <li><a class="dropdown-item" href="/mis-resenas">
+                                <i class="fas fa-star me-2"></i>Mis Reseñas
+                            </a></li>
+                            <li><a class="dropdown-item" href="/mis-tickets">
+                                <i class="fas fa-ticket-alt me-2"></i>Mis Tickets
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/auth/logout">
+                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                            </a></li>
+                        </ul>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/login">
+                            <i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/register">
+                            <i class="fas fa-user-plus me-1"></i>Registrarse
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-utensils me-2"></i>GastroAPI
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/restaurantes">Restaurantes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/docs">API Docs</a>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav">
+                <% if (user) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user me-1"></i><%= user.nombre %>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+                <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light ms-2" href="/auth/register">Registrarse</a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
